@@ -1,0 +1,13 @@
+
+.my-product {
+	padding: 10px 0;
+	border-radius: 5px;
+	background-color: #f5f7f6;
+	border: 1px solid #f5f7f6;
+    box-shadow: 0 4px 4px -6px black;
+}
+.my-product:hover{
+	border: 1px solid rgb(52,229, 235);
+	background-color: rgba(52,229, 235, 0.2);
+
+}
