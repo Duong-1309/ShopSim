@@ -1,9 +1,8 @@
 import React from 'react'
-import Header from '../components/header'
-import Main from '../components/main'
-import Products from '../components/products/products'
-import Footer from '../components/footer'
-import MobileMenu from '../components/mobileMenu'
+import Header from '../components/layout/header'
+import Main from '../components/layout/main'
+import Footer from '../components/layout/footer'
+import MobileMenu from '../components/layout/mobileMenu'
 
 function Layout({children}) {
     return (
