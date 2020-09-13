@@ -1,6 +1,6 @@
 
 .my-product {
-	padding: 10px 0;
+	padding: 3px 0;
 	border-radius: 5px;
 	background-color: #f5f7f6;
 	border: 1px solid #f5f7f6;
@@ -10,4 +10,7 @@
 	border: 1px solid rgb(52,229, 235);
 	background-color: rgba(52,229, 235, 0.2);
 
+}
+.my-product .product-box .title{
+	
 }
