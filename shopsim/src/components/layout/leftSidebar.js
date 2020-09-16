@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function LeftSidebar() {
     return (
@@ -6,80 +7,80 @@ function LeftSidebar() {
           <div>
             <h2 className="side-menu-title">SIM THEO GIÁ</h2>
             <ul className="side-menu mb-1 pb-1">
-              <li><a href="#">Sim dưới 500 nghìn</a></li>
-              <li><a href="#">Sim giá 500 - 1 triệu</a></li>
-              <li><a href="#">Sim giá 1 - 3 triệu</a></li>
-              <li><a href="#">Sim giá 3 - 5 triệu</a></li>
-              <li><a href="#">Sim giá 5 - 10 triệu</a></li>
-              <li><a href="#">Sim giá 10 - 50 triệu</a></li>
-              <li><a href="#">Sim giá 50 - 100 triệu</a></li>
-              <li><a href="#">Sim giá 100 - 500 triệu</a></li>
-              <li><a href="#">Sim giá trên 500 triệu</a></li>
-              <li><a href="#">Tùy chọn khoảng giá</a></li>
+              <li><Link to="/gia-tu/0-500" >Sim dưới 500 nghìn</Link></li>
+              <li><Link to="/gia-tu/500-1000">Sim giá 500 - 1 triệu</Link></li>
+              <li><Link to="/gia-tu/1000-3000">Sim giá 1 - 3 triệu</Link></li>
+              <li><Link to="/gia-tu/3000-5000">Sim giá 3 - 5 triệu</Link></li>
+              <li><Link to="/gia-tu/5000-10000">Sim giá 5 - 10 triệu</Link></li>
+              <li><Link to="/gia-tu/10000-50000">Sim giá 10 - 50 triệu</Link></li>
+              <li><Link to="/gia-tu/50000-100000">Sim giá 50 - 100 triệu</Link></li>
+              <li><Link to="/gia-tu/100000-500000">Sim giá 100 - 500 triệu</Link></li>
+              <li><Link to="/gia-tu/500000-999999999999999">Sim giá trên 500 triệu</Link></li>
+              <li><Link to="/gia-tu/0-500">Tùy chọn khoảng giá</Link></li>
             </ul>
           </div>
           <div>
             <h2 className="side-menu-title">SIM THEO MẠNG</h2>
             <ul className="side-menu mb-1 pb-1">
-              <li><a href="#">Sim Viettel</a></li>
-              <li><a href="#">Sim Vinaphone</a></li>
-              <li><a href="#">Sim Mobiphone</a></li>
-              <li><a href="#">Sim VietnamMobile</a></li>
-              <li><a href="#">Sim Gmobile</a></li>
-              <li><a href="#">Sim iTelecom</a></li>
+              <li><Link to="#">Sim Viettel</Link></li>
+              <li><Link to="#">Sim VinLinkphone</Link></li>
+              <li><Link to="#">Sim Mobiphone</Link></li>
+              <li><Link to="#">Sim VietnLinkmMobile</Link></li>
+              <li><Link to="#">Sim Gmobile</Link></li>
+              <li><Link to="#">Sim iTelecom</Link></li>
             </ul>
           </div>
           <div>
             <h2 className="side-menu-title">SIM THEO LOẠI</h2>
             <ul className="side-menu mb-1 pb-1">
-              <li><a href="#">Sim trả góp</a></li>
-              <li><a href="#">Sim giá rẻ</a></li>
-              <li><a href="#">Sim trả sau</a></li>
-              <li><a href="#">Sim VIP</a></li>
-              <li><a href="#">Sim Lục quý</a></li>
-              <li><a href="#">Sim Ngũ quý</a></li>
-              <li><a href="#">Sim Tứ quý</a></li>
-              <li><a href="#">Sim Taxi</a></li>
-              <li><a href="#">Sim Tam hoa kép</a></li>
-              <li><a href="#">Sim Tam hoa</a></li>
-              <li><a href="#">Sim Lộc phát</a></li>
-              <li><a href="#">Sim Thần tài</a></li>
-              <li><a href="#">Sim Ông Địa</a></li>
-              <li><a href="#">Sim Lặp kép</a></li>
-              <li><a href="#">Sim Gánh đào</a></li>
-              <li><a href="#">Sim Tiến lên</a></li>
-              <li><a href="#">Sim Đôi</a></li>
-              <li><a href="#">Sim Dễ nhớ</a></li>
-              <li><a href="#">Sim Năm sinh</a></li>
-              <li><a href="#">Sim Số độc</a></li>
-              <li><a href="#">Sim Lục quý giữa</a></li>
-              <li><a href="#">Sim Ngũ quý giữa</a></li>
-              <li><a href="#">Sim Tứ quý giữa</a></li>
-              <li><a href="#">Sim đầu số cổ</a></li>
-              <li><a href="#">Sim Đại cát</a></li>
-              <li><a href="#">Sim Phong thủy</a></li>
-              <li><a href="#">Sim 4G</a></li>
+              <li><Link to="#">Sim trả góp</Link></li>
+              <li><Link to="#">Sim giá rẻ</Link></li>
+              <li><Link to="#">Sim trả sLinku</Link></li>
+              <li><Link to="#">Sim VIP</Link></li>
+              <li><Link to="#">Sim Lục quý</Link></li>
+              <li><Link to="#">Sim Ngũ quý</Link></li>
+              <li><Link to="#">Sim Tứ quý</Link></li>
+              <li><Link to="#">Sim TLinkxi</Link></li>
+              <li><Link to="#">Sim TLinkm hoLink kép</Link></li>
+              <li><Link to="#">Sim TLinkm hoLink</Link></li>
+              <li><Link to="#">Sim Lộc phát</Link></li>
+              <li><Link to="#">Sim Thần tài</Link></li>
+              <li><Link to="#">Sim Ông ĐịLink</Link></li>
+              <li><Link to="#">Sim Lặp kép</Link></li>
+              <li><Link to="#">Sim Gánh đào</Link></li>
+              <li><Link to="#">Sim Tiến lên</Link></li>
+              <li><Link to="#">Sim Đôi</Link></li>
+              <li><Link to="#">Sim Dễ nhớ</Link></li>
+              <li><Link to="#">Sim Năm sinh</Link></li>
+              <li><Link to="#">Sim Số độc</Link></li>
+              <li><Link to="#">Sim Lục quý giữLink</Link></li>
+              <li><Link to="#">Sim Ngũ quý giữLink</Link></li>
+              <li><Link to="#">Sim Tứ quý giữLink</Link></li>
+              <li><Link to="#">Sim đầu số cổ</Link></li>
+              <li><Link to="#">Sim Đại cát</Link></li>
+              <li><Link to="#">Sim Phong thủy</Link></li>
+              <li><Link to="#">Sim 4G</Link></li>
             </ul>
           </div>
           <div>
             <h2 className="side-menu-title">SIM THEO NĂM SINH</h2>
             <ul className="side-menu mb-1 pb-1">
-              <li><a href="#">Sim năm sinh 2000</a></li>
-              <li><a href="#">Sim năm sinh 1999</a></li>
-              <li><a href="#">Sim năm sinh 1998</a></li>
-              <li><a href="#">Sim năm sinh 1997</a></li>
-              <li><a href="#">Sim năm sinh 1996</a></li>
-              <li><a href="#">Sim năm sinh 1995</a></li>
-              <li><a href="#">Sim năm sinh 1994</a></li>
-              <li><a href="#">Sim năm sinh 1993</a></li>
-              <li><a href="#">Sim năm sinh 1992</a></li>
-              <li><a href="#">Sim năm sinh 1991</a></li>
-              <li><a href="#">Sim năm sinh 1990</a></li>
-              <li><a href="#">Sim năm sinh 1989</a></li>
-              <li><a href="#">Sim năm sinh 1988</a></li>
-              <li><a href="#">Sim năm sinh 1987</a></li>
-              <li><a href="#">Sim năm sinh 1986</a></li>
-              <li><a href="#">Sim năm sinh 1985</a></li>              
+              <li><Link to="#">Sim năm sinh 2000</Link></li>
+              <li><Link to="#">Sim năm sinh 1999</Link></li>
+              <li><Link to="#">Sim năm sinh 1998</Link></li>
+              <li><Link to="#">Sim năm sinh 1997</Link></li>
+              <li><Link to="#">Sim năm sinh 1996</Link></li>
+              <li><Link to="#">Sim năm sinh 1995</Link></li>
+              <li><Link to="#">Sim năm sinh 1994</Link></li>
+              <li><Link to="#">Sim năm sinh 1993</Link></li>
+              <li><Link to="#">Sim năm sinh 1992</Link></li>
+              <li><Link to="#">Sim năm sinh 1991</Link></li>
+              <li><Link to="#">Sim năm sinh 1990</Link></li>
+              <li><Link to="#">Sim năm sinh 1989</Link></li>
+              <li><Link to="#">Sim năm sinh 1988</Link></li>
+              <li><Link to="#">Sim năm sinh 1987</Link></li>
+              <li><Link to="#">Sim năm sinh 1986</Link></li>
+              <li><Link to="#">Sim năm sinh 1985</Link></li>              
             </ul>
           </div>
       </div>

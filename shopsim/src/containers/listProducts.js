@@ -14,7 +14,7 @@ function ListProducts() {
       setLoading(false)
     };
     fetchSimCard()
-  }, [])
+  },[])
 
   return (
     <Product data={simCard} loading={loading}/>
