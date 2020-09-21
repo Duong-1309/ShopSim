@@ -79,7 +79,7 @@ function MobileMenu() {
                 </div>
                 </div>
             </div>
-            <a id="scroll-top" href="#top" title="Top" role="button"><i className="icon-angle-up" /></a>
+            <a id="scroll-top" href="#top" title="Top" role="button"><i className="icon-angle-up"></i></a>
             </div>
         </div>
     )

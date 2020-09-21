@@ -1,12 +1,14 @@
 import React from 'react'
-import {matchPath, Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import ListProducts from './containers/listProducts'
 import SortProducts from './containers/sortProducts'
+import SearchProduct from './containers/searchProduct'
 
 const BaseRouter = () => (
         <Switch>
             <Route exact path='/' component={ListProducts}  />
-            <Route exact path='/gia-tu/:textsort' component={SortProducts} main={matchPath} />
+            <Route exact path='/sort/:textsort' component={SortProducts} />
+            <Route exact path='/search/tim-sim' component={SearchProduct}/>
         </Switch>
 );
 export default BaseRouter;
