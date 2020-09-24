@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-import { Modal, Form, Input, } from 'antd';
+import {Link, useHistory} from 'react-router-dom'
+import { Modal, Form, Input, } from 'antd'
 
 
 
@@ -13,12 +13,12 @@ function LeftSidebar() {
     const showModal = () => {
       setVisible(true);
     };
-  
+    const history = useHistory();
     const handleOk = e => {
       e.preventDefault();
       setVisible(false)
       if (inputOne !== '' && inputTwo !== ''){
-        window.location=`/${inputOne}-${inputTwo}`;
+        history.push(`/gia-tu/${inputOne}-${inputTwo}`);
       }
       setInputOne('');
       setInputTwo('');     
@@ -50,15 +50,15 @@ function LeftSidebar() {
               <div className="col-sm-4 col-lg-12">
                 <h2 className="side-menu-title">SIM THEO GIÁ</h2>
                 <ul className="side-menu mb-1 pb-1">
-                  <li><Link to="/sort/0-500" >Sim dưới 500 nghìn</Link></li>
-                  <li><Link to="/sort/500-1000">Sim giá 500 - 1 triệu</Link></li>
-                  <li><Link to="/sort/1000-3000">Sim giá 1 - 3 triệu</Link></li>
-                  <li><Link to="/sort/3000-5000">Sim giá 3 - 5 triệu</Link></li>
-                  <li><Link to="/sort/5000-10000">Sim giá 5 - 10 triệu</Link></li>
-                  <li><Link to="/sort/10000-50000">Sim giá 10 - 50 triệu</Link></li>
-                  <li><Link to="/sort/50000-100000">Sim giá 50 - 100 triệu</Link></li>
-                  <li><Link to="/sort/100000-500000">Sim giá 100 - 500 triệu</Link></li>
-                  <li><Link to="/sort/500000-999999999999999">Sim giá trên 500 triệu</Link></li>
+                  <li><Link to="/gia-tu/0-500" >Sim dưới 500 nghìn</Link></li>
+                  <li><Link to="/gia-tu/500-1000">Sim giá 500 - 1 triệu</Link></li>
+                  <li><Link to="/gia-tu/1000-3000">Sim giá 1 - 3 triệu</Link></li>
+                  <li><Link to="/gia-tu/3000-5000">Sim giá 3 - 5 triệu</Link></li>
+                  <li><Link to="/gia-tu/5000-10000">Sim giá 5 - 10 triệu</Link></li>
+                  <li><Link to="/gia-tu/10000-50000">Sim giá 10 - 50 triệu</Link></li>
+                  <li><Link to="/gia-tu/50000-100000">Sim giá 50 - 100 triệu</Link></li>
+                  <li><Link to="/gia-tu/100000-500000">Sim giá 100 - 500 triệu</Link></li>
+                  <li><Link to="/gia-tu/500000-999999999999999">Sim giá trên 500 triệu</Link></li>
                   <li onClick={showModal}>Tùy chọn khoảng giá</li>
                 </ul>
               </div>

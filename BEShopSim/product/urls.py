@@ -15,5 +15,7 @@ urlpatterns = [
 
     path('variation', views.ListVariation.as_view(), name='variation'),
     path('variation/<int:pk>', views.DetailVariation.as_view(), name='detail_variation'),
+
+    path('customer-information/', views.CusInfor)
    
 ]

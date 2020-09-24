@@ -27,7 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+if DEBUG:
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+    EMAIL_HOST_USER = 'vanduongk1309@gmail.com'
+    EMAIL_HOST_PASSWORD = 'vdemail20'
+    EMAIL_USE_TLS = False
 # Application definition
 
 INSTALLED_APPS = [

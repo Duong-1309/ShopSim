@@ -7,6 +7,8 @@ from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from .serializers import CategorySerializer, ProductSerializer, VariationSerializer
 from .models import Category, Product, Variation
+from django.core.mail import send_mail
+
 # Create your views here.
 
 # API Category =========================
@@ -199,8 +201,15 @@ def SortProduct(request, textsort):
         products = Product.objects.filter(price__gte=1000000, price__lte=3000000)
         serializer = ProductSerializer(products, many=True)
         return JsonResponse(serializer.data, safe=False)
-    
 
+# ==================Customer Information ========================
+
+@api_view(['POST'])
+def CusInfor(request):
+    # send_mail('Customer Information', request.data, 'vanduongk1309@gmail.com', 
+    #         ['duondg@gmail.com'], fail_silently=False)
+    return JsonResponse(request.data, safe=False, status=status.HTTP_200_OK)
+    
 
 
     

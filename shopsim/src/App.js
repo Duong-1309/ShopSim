@@ -1,18 +1,23 @@
 import React from 'react';
 import './App.css';
-import Layout from './containers/layout'
 import {BrowserRouter as Router} from 'react-router-dom'
 import BaseRouter from './Routes'
-
+import Header from './components/layout/header'
+import Main from './components/layout/main'
+import Footer from './components/layout/footer'
+import MobileMenu from './components/layout/mobileMenu'
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Layout>
+        <Header />
+        <Main >
           <BaseRouter />
-        </Layout>
-      </Router>
+        </Main>
+        <Footer />
+        <MobileMenu />
+     </Router>
     </div>
   );
 }
