@@ -8,7 +8,7 @@ import DetailProduct from './containers/detailProduct'
 const BaseRouter = () => (
         <Switch>
             <Route exact path='/' component={ListProducts}  />
-            <Route exact path='/gia-tu/:textsort' component={SortProducts} />
+            <Route exact path='/sim/:textsort' component={SortProducts} />
             <Route exact path='/tim-sim/:textsearch' component={SearchProduct}/>
             <Route exact path='/chi-tiet-sim/:idsim' component={DetailProduct} />
                

@@ -23,7 +23,7 @@ function Products(props) {
             <>
               <div className="row row-sm">
                 {data.map((sim) => (
-                  
+                  !sim.active && (
                   <div key={sim.id} className="col-6 col-md-4">
                     <Link to={`/chi-tiet-sim/${sim.id}`} >
                   <div className="product-default my-product">
@@ -41,6 +41,7 @@ function Products(props) {
                   </div>
                   </Link>
                 </div>
+                  )
                 ))}
                 
               </div>

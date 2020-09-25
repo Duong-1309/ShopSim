@@ -5,13 +5,15 @@ from rest_framework import filters
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
-from .serializers import CategorySerializer, ProductSerializer, VariationSerializer
-from .models import Category, Product, Variation
+from .serializers import (CategorySerializer, ProductSerializer, 
+                        VariationSerializer, CustomerInformationSerializer,
+                        ProductTypeSerializer)
+from .models import Category, Product, Variation, ProductType
 from django.core.mail import send_mail
 
 # Create your views here.
 
-# API Category =========================
+#  ======================= API Category =========================
 class ListCategory(ListCreateAPIView):
     model = Category
     serializer_class = CategorySerializer
@@ -58,7 +60,23 @@ class DetailCategory(RetrieveUpdateDestroyAPIView):
                 'message': 'delete category successful'
             }, status=status.HTTP_200_OK)
     
-# =========== ============ API Product ============= ===============
+# ================ API Product Type =============
+
+class ListProductType(ListCreateAPIView):
+    model = ProductType
+    serializer_class = ProductTypeSerializer
+
+    def get_queryset(self):
+        return ProductType.objects.all()
+
+class DetailProductType(RetrieveUpdateDestroyAPIView):
+    model = ProductType
+    serializer_class = ProductTypeSerializer
+
+    def get_queryset(self):
+        idproduct = self.kwargs['pk']
+        return ProductType.objects.filter(id=idproduct)
+
 
 class ListProduct(ListCreateAPIView):
     model = Product
@@ -180,37 +198,55 @@ def SearchProduct(request, textsearch):
         serializer = ProductSerializer(products, many=True)
         return JsonResponse(serializer.data, safe=False)
         
-# class SearchList(ListCreateAPIView):
-#     search_fields = ['title']
-#     filter_backends = (filters.SearchFilter,)
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
 
 # ========= Sort Product ===================
 
 @api_view(['GET'])
 def SortProduct(request, textsort):
-    if "-" in textsort:
-        a = textsort.split("-")
+    text = textsort.split('&&')
+    text_cutted = text[-1]
+    if "-" in text_cutted: # list by price
+        a = text_cutted.split("-")
         start = int(a[0])
         end = int(a[-1])
         products = Product.objects.filter(price__gte=start, price__lte=end)
         serializer = ProductSerializer(products, many=True)
         return JsonResponse(serializer.data, safe=False)
-    elif textsort == "<500":
-        products = Product.objects.filter(price__gte=1000000, price__lte=3000000)
+
+    elif "=" in text_cutted: # list by mang
+        a = text_cutted.split("=")
+        id_type = int(a[-1])
+        type_product = ProductType.objects.get(id=id_type)
+        products = type_product.product_set.all()
+        serializer = ProductTypeSerializer(products, many=True)
+        return JsonResponse(serializer.data, safe=False)
+        
+    else: # List by categories
+        idCategory = int(text_cutted)
+        category = Category.objects.get(id=idCategory)
+        products = category.product_set.all()
         serializer = ProductSerializer(products, many=True)
         return JsonResponse(serializer.data, safe=False)
+    
 
 # ==================Customer Information ========================
 
 @api_view(['POST'])
 def CusInfor(request):
-    # send_mail('Customer Information', request.data, 'vanduongk1309@gmail.com', 
-    #         ['duondg@gmail.com'], fail_silently=False)
-    return JsonResponse(request.data, safe=False, status=status.HTTP_200_OK)
     
-
+    serializer = CustomerInformationSerializer(data = request.data)
+    if serializer.is_valid():
+        serializer.save()
+        product = get_object_or_404(Product, id=serializer.data['product'])
+        # send_mail('Customer Information', request.data, 'vanduongk1309@gmail.com', 
+        #         ['duondg@gmail.com'], fail_silently=False)
+        product.active = True
+        product.save()
+        return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+    else:
+        return JsonResponse({
+            'message': 'create customer information Unsuccessful'
+        }, status=status.HTTP_400_BAD_REQUEST)
 
     
         

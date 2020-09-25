@@ -31,7 +31,7 @@ function SingleProduct(props) {
     }
     
   }
-  let Sim = data; //lấy dữ liệu trước khi gọi hàm
+ 
 
   const handleSubmitCusInfor = (e) => {
     e.preventDefault();
@@ -51,12 +51,13 @@ function SingleProduct(props) {
     setModalOne(false);
     
   };
+  let Sim = data; //lấy dữ liệu trước khi gọi hàm
   const handleOk = e => {
     e.preventDefault();
     let [pNumber, nName, aAddress] = [phoneNumber.trim(), name.trim(), address.trim()] //loại bỏ khoảng trắng
-    const data = {"phoneNumber": pNumber, "name": nName, "address": aAddress, "sim": Sim}
+    const dataset = {"phoneNumber": pNumber, "name": nName, "address": aAddress, "product": Sim.id}
     if(pNumber !== '' && nName !== '' && aAddress !== ''){  //kiểm tra data #trăngs
-      axios.post('http://127.0.0.1:8000/api/customer-information/', data)
+      axios.post('http://127.0.0.1:8000/api/customer-information/', dataset)
         .then((res) => {
           Modal.success({
             title: 'Đăt sim thành công',
@@ -67,11 +68,11 @@ function SingleProduct(props) {
                   <tbody>
                     <tr>
                       <td>Tên sản phẩm</td>
-                      <td>{res.data.sim.title}</td>
+                      <td>{data.title}</td>
                     </tr>
                     <tr>
                       <td>Giá bán</td>
-                      <td>{res.data.sim.price}</td>
+                      <td>{data.price}</td>
                     </tr>
                     <tr>
                       <td>Hình thức thanh toán</td>
@@ -99,7 +100,7 @@ function SingleProduct(props) {
           setPhoneNumber('');
           setAddress('');
           setName('');
-          console.log(res.statusText);
+          console.log(res);
         }).catch((err) => {
           console.log(err.message);
           Modal.error({
@@ -115,7 +116,7 @@ function SingleProduct(props) {
       setModalOne(false)
         
     };
-
+    console.log(data.active);
   return (
     <>
     <Modal
@@ -140,6 +141,7 @@ function SingleProduct(props) {
             <span>Giá bán: <strong style={{fontSize: 24, color: '#007bff',}}>{data.price}</strong></span>
             <br/>
             <span>Loại sim: <strong style={{fontSize: 24, color: '#007bff',}}>{data.description}</strong></span>
+            {data.active && <p>Đã bán</p>}
           </div>
           <div className="col-5 d-flex justify-content-center">
             
@@ -172,7 +174,7 @@ function SingleProduct(props) {
         </div>
     </div>
     <div className="text-justify p-5 my-3 border">
-        <p className="font-weight-bold">Hướn dẫn cách thức mua sim {data.title}</p>
+        <h4 className="font-weight-bold">Hướng dẫn cách thức mua sim {data.title}</h4>
         <p>Đặt cọc và thanh toán tiền còn lại khi nhận sim 
           (áp dụng tại các tỉnh không có đại lý): Quý khách đảm bảo 
           việc mua hàng bằng cách đặt cọc tối thiểu 10% giá trị sim 
