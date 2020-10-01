@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useParams,} from 'react-router-dom'
 import axios from 'axios'
-import Products from '../components/products/products'
+import Products from '../../components/products/products'
 
 function SortProducts() {
     const {textsort} = useParams();
@@ -10,10 +10,11 @@ function SortProducts() {
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
+        document.getElementById('HEADER').scrollIntoView();
         const fetchSimCard = async () => {
             try {
             setLoading(true)
-            const res = await axios.get(`http://127.0.0.1:8000/api/product/sort/${textsort}`)
+            const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product/sort/${textsort}`)
             setSimCard(res.data)
             setLoading(false)   
             } catch (error) {

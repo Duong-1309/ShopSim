@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import Product from '../components/products/products'
+import Product from '../../components/products/products'
 import axios from 'axios'
 
 function ListProducts() {
   const [simCard, setSimCard] = useState([]);
   const [loading, setLoading] = useState(false)
-
   useEffect(()=>{
+    document.getElementById('HEADER').scrollIntoView();
+
     const fetchSimCard = async () => {
       setLoading(true)
-      const res = await axios.get('http://127.0.0.1:8000/api/product')
+      const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product`)
       setSimCard(res.data)
       setLoading(false)
     };

@@ -15,12 +15,12 @@ function LeftSidebar() {
 
     useEffect(() => {
       const fetchCategories = async () => {
-        const res = await axios.get('http://127.0.0.1:8000/api/category')
+        const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/category`)
         setCategories(res.data)
       }
       fetchCategories();
       const fetchProductType = async () => {
-        const res = await axios.get('http://127.0.0.1:8000/api/product-type')
+        const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product-type`)
         setProductType(res.data)
       }
       fetchProductType();

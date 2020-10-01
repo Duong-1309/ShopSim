@@ -13,6 +13,14 @@ function Main({children}) {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+               <nav aria-label="breadcrumb" className="breadcrumb-nav">
+                  <div className="container">
+                    <ol className="breadcrumb">
+                      <li className="breadcrumb-item"><a href="#"><i className="icon-home" /></a></li>
+                      <li className="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                  </div>{/* End .container */}
+                </nav>
                 <Search />
                 {children}
               </div>

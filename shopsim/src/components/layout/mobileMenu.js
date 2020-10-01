@@ -42,27 +42,8 @@ function MobileMenu() {
                 </div>{/* End .social-icons */}
                 </div>{/* End .mobile-menu-wrapper */}
             </div>{/* End .mobile-menu-container */}
-            <div className="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style={{background: '#f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)'}}>
-                <div className="newsletter-popup-content">
-                <img src="assets/images/logo-black.png" alt="Logo" className="logo-newsletter" />
-                <h2>NHẬN THÔNG BÁO KHUYẾN MÃI</h2>
-                <p>Nhập email của bạn để nhận thông báo sớm nhất về các chương trình khuyến mãi của shop sim LêMoon.</p>
-                <form action="#">
-                    <div className="input-group">
-                    <input type="email" className="form-control" id="newsletter-email" name="newsletter-email" placeholder="Nhập Email" required />
-                    <button type="submit" className="btn" defaultValue="Go!">Gửi</button>
-                    </div>{/* End .from-group */}
-                </form>
-                <div className="newsletter-subscribe">
-                    <div className="checkbox">
-                    <label>
-                        <input type="checkbox" defaultValue={1} />
-                        Không hiển thị lại thông báo này
-                    </label>
-                    </div>
-                </div>
-                </div>{/* End .newsletter-popup-content */}
-            </div>{/* End .newsletter-popup */}
+            {/* THis is place newlester popup */}
+           
             {/* Add Cart Modal */}
             <div className="modal fade" id="addCartModal" tabIndex={-1} role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -79,9 +60,31 @@ function MobileMenu() {
                 </div>
                 </div>
             </div>
-            <a id="scroll-top" href="#top" title="Top" role="button"><i className="icon-angle-up"></i></a>
+            <a id="scroll-top" href="#top" title="Top" role="button"><i className="icon-angle-up"></i>up</a>
             </div>
+            {/* <div className="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style={{background: '#f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)'}}>
+                <div className="newsletter-popup-content">
+                <img src="assets/images/logo-black.png" alt="Logo" className="logo-newsletter" />
+                <h2>NHẬN THÔNG BÁO KHUYẾN MÃI</h2>
+                <p>Nhập email của bạn để nhận thông báo sớm nhất về các chương trình khuyến mãi của shop sim LêMoon.</p>
+                <form action="#">
+                    <div className="input-group">
+                    <input type="email" className="form-control" id="newsletter-email" name="newsletter-email" placeholder="Nhập Email" required />
+                    <button type="submit" className="btn" defaultValue="Go!">Gửi</button>
+                    </div>
+                </form>
+                <div className="newsletter-subscribe">
+                    <div className="checkbox">
+                    <label>
+                        <input type="checkbox" defaultValue={1} />
+                        Không hiển thị lại thông báo này
+                    </label>
+                    </div>
+                </div>
+                </div>
+            </div> */}
         </div>
+         
     )
 }
 

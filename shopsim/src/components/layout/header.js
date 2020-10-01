@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Header() {
     return (
-        <header className="header">
+        <header id="HEADER" className="header">
           <div className="header-middle">
             <div className="container">
               <div className="header-left col-lg-2 w-auto pl-0">
@@ -31,18 +31,18 @@ function Header() {
                     <Link to="/">TRANG CHỦ</Link>
                   </li>
                   <li>
-                    <a href="#">SIM PHONG THỦY <span className="tip tip-new tip-top">New</span></a>
+                    <Link to="/sim/phong-thuy&&33">SIM PHONG THỦY <span className="tip tip-new tip-top">New</span></Link>
                   </li>
                   <li>
                     <a href="#">SIM TRẢ GÓP</a>
                   </li>
-                  <li>
-                    <a href="#">TUYỂN DỤNG</a>
-                  </li>
                   <li><a href="#">THANH TOÁN</a></li>
-                  <li><a href="#">LIÊN HỆ</a></li>
+                  <li>
+                    <Link to="/about">GIỚI THIỆU</Link>
+                  </li>
+                  <li><Link to="/lien-he">LIÊN HỆ</Link></li>
                   <li><a href="#">ĐĂNG NHẬP</a></li>
-                  <li className="float-right"><a href="#" target="_blank">TIN TỨC</a></li>
+                  <li className="float-right"><Link to="/chuyen-muc" >TIN TỨC</Link></li>
                   <li className="float-right"><a href="#">KHUYẾN MÃI</a></li>
                 </ul>
               </nav>

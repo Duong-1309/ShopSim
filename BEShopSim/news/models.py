@@ -2,6 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils.text import slugify
 from datetime import date
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Categories(models.Model):
@@ -23,8 +24,9 @@ class News(models.Model):
                                    on_delete=models.CASCADE)
     title = models.CharField(max_length=254, verbose_name=_('name'))
     slug = models.SlugField(max_length=254, unique=True, blank=True, editable=True)
-    short_description = models.TextField(verbose_name=_('Short description'))
+    short_description = models.TextField(verbose_name=_('Short description'), max_length=150)
     description = models.TextField(verbose_name=_('Description'))
+    author = models.ForeignKey(User, verbose_name=_('Author'), on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(verbose_name=_('Created at'), auto_now_add=True)
     publish_at = models.DateTimeField(verbose_name=_('Publish at'),)
     upload_to = 'img/news/{0}/{1}'.format(date.today().year, date.today().month)
