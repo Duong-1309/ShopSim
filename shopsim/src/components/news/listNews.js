@@ -41,6 +41,7 @@ function ListNews(props) {
 			<div className="container">
                 <div className="row">
                     <div className="col-lg-9">
+                    <h2 className="post-title pb-3">Danh sách bài viết</h2>
                     {listNews.map((news)=> (
                         <article key={news.id} className="post">
                         <div className="post-media">

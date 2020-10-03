@@ -11,7 +11,6 @@ function SearchProduct() {
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-        document.getElementById('HEADER').scrollIntoView();
         const fetchSimCard = async () => {
             try {
                 setLoading(true)

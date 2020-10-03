@@ -59,12 +59,12 @@ function LeftSidebar() {
         console.log(name,value);
       }
     }
-
+    // col-sm-4 col-md-4 col-lg-12
     return (
         <div className="col-lg-2 mb-2">
           <div className="container">
             <div className="row justify-content-md-center">
-              <div className="col-sm-4 col-md-4 col-lg-12">
+              <div className="col-6 col-sm-6 col-md-6 col-lg-12">
                 <h2 className="side-menu-title">SIM THEO GIÁ</h2>
                 <ul className="side-menu mb-1 pb-1">
                   <li><Link to="/sim/gia-tu&&0-500" >Sim dưới 500 nghìn</Link></li>
@@ -91,7 +91,7 @@ function LeftSidebar() {
                   <Input name="inputTwo" value={inputTwo} onChange={handleChange} type="text" placeholder="..."/>
                 </Form>
               </Modal>          
-          <div className="col-sm-4 col-md-4 col-lg-12">
+          <div className="col-6 col-sm-6 col-md-6 col-lg-12">
             <h2 className="side-menu-title">SIM THEO MẠNG</h2>
             <ul className="side-menu mb-1 pb-1">
               {productType.map((sim)=> (
@@ -99,7 +99,7 @@ function LeftSidebar() {
               ))}
             </ul>
           </div>
-          <div className="col-sm-4 col-md-4 col-lg-12">
+          <div className="col-6 col-sm-6 col-md-6 col-lg-12">
             <h2 className="side-menu-title">SIM THEO LOẠI</h2>
             <ul className="side-menu mb-1 pb-1">
               {categories.map((category) => (
@@ -107,7 +107,7 @@ function LeftSidebar() {
               ))}
             </ul>
           </div>
-          <div className="col-sm-4 col-md-4 col-lg-12"> 
+          <div className="col-6 col-sm-6 col-md-6 col-lg-12"> 
             <h2 className="side-menu-title">SIM THEO NĂM SINH</h2>
             <ul className="side-menu mb-1 pb-1">
               <li><Link to="#">Sim năm sinh 2000</Link></li>

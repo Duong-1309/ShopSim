@@ -10,42 +10,80 @@ import About from './about'
 import Contact from './contact'
 import NotFound from './404'
 import Main from './components/layout/main'
-
+import Admin from './components/admin/admin'
+import Header from './components/layout/header'
+import Footer from './components/layout/footer'
+import MobileMenu from './components/layout/mobileMenu'
+import ArticleManagement from './components/admin/content/articleManagement'
 
 const BaseRouter = () => (
+   
     <Switch>
         <Route exact path="/">
+            <Header />
             <Main>
                 <ListProducts />
             </Main>
+            <Footer />
+            <MobileMenu />
         </Route>
         <Route path='/sim/:textsort'>
+            <Header />
             <Main>
                 <SortProducts />
             </Main>
+            <Footer />
+            <MobileMenu />
         </Route>
         <Route path='/tim-sim/:textsearch'>
+            <Header />
             <Main>
                 <SearchProduct />
             </Main>
+            <Footer />
+            <MobileMenu />
         </Route>
         <Route path='/chi-tiet-sim/:idsim'>
+            <Header />
             <Main>
                 <DetailProduct />
             </Main>
+            <Footer />
+            <MobileMenu />
         </Route>
         <Route exact path='/chuyen-muc'>
+            <Header />
             <DataListNews />
+            <Footer />
+            <MobileMenu />
         </Route>
         <Route path='/chuyen-muc/:slugCategory/:slugNews'>
-                <DataSingleNews />
+            <Header />
+            <DataSingleNews />
+            <Footer />
+            <MobileMenu />
         </Route>
 
-
-        <Route path="/about" component={About} />
-        <Route path="/lien-he" component={Contact} />
+        <Route path="/about">
+            <Header />
+            <About />
+            <Footer />
+            <MobileMenu />
+        </Route>
+        <Route path="/lien-he">
+            <Header />
+            <Contact />
+            <Footer />
+            <MobileMenu />
+        </Route>
+        <Route path="/admin">
+            <Admin>
+                <ArticleManagement />
+            </Admin>
+        </Route>
         <Route path="*" component={NotFound} />
     </Switch>
-
+   
+    
 );
 export default BaseRouter;
