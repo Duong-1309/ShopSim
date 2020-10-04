@@ -64,62 +64,7 @@ function About(props) {
   <div className="testimonials-section">
     <div className="container">
       <h2 className="subtitle text-center">CHÚC MỪNG KHÁCH HÀNG</h2>
-      <div className="testimonials-carousel owl-carousel owl-theme images-left" data-owl-options="{
-              'lazyLoad': true,
-              'autoHeight': true,
-              'dots': false,
-              'responsive': {
-                  '0': {
-                      'items': 1
-                  },
-                  '992': {
-                      'items': 2
-                  }
-              }
-          }">
-        <div className="testimonial">
-          <div className="testimonial-owner">
-            <figure>
-              <img src="assets/images/clients/client1.png" alt="client" />
-            </figure>
-            <div>
-              <h4 className="testimonial-title">john Smith</h4>
-              <span>Proto Co Ceo</span>
-            </div>
-          </div>{/* End .testimonial-owner */}
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
-          </blockquote>
-        </div>{/* End .testimonial */}
-        <div className="testimonial">
-          <div className="testimonial-owner">
-            <figure>
-              <img src="assets/images/clients/client2.png" alt="client" />
-            </figure>
-            <div>
-              <h4 className="testimonial-title">Bob Smith</h4>
-              <span>Proto Co Ceo</span>
-            </div>
-          </div>{/* End .testimonial-owner */}
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
-          </blockquote>
-        </div>{/* End .testimonial */}
-        <div className="testimonial">
-          <div className="testimonial-owner">
-            <figure>
-              <img src="assets/images/clients/client1.png" alt="client" />
-            </figure>
-            <div>
-              <h4 className="testimonial-title">john Smith</h4>
-              <span>Proto Co Ceo</span>
-            </div>
-          </div>{/* End .testimonial-owner */}
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
-          </blockquote>
-        </div>{/* End .testimonial */}
-      </div>{/* End .testimonials-slider */}
+     
     </div>{/* End .container */}
   </div>{/* End .testimonials-section */}
  

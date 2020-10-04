@@ -10,11 +10,13 @@ import About from './about'
 import Contact from './contact'
 import NotFound from './404'
 import Main from './components/layout/main'
-import Admin from './components/admin/admin'
+import Admin from './containers/admin/admin'
 import Header from './components/layout/header'
 import Footer from './components/layout/footer'
 import MobileMenu from './components/layout/mobileMenu'
-import ArticleManagement from './components/admin/content/articleManagement'
+import ArticleManagement from './containers/admin/content/articleManagement'
+import Login from './containers/admin/login'
+import Signup from './containers/admin/signup'
 
 const BaseRouter = () => (
    
@@ -76,11 +78,13 @@ const BaseRouter = () => (
             <Footer />
             <MobileMenu />
         </Route>
-        <Route path="/admin">
+        <Route exact path="/admin">
             <Admin>
                 <ArticleManagement />
             </Admin>
         </Route>
+        <Route exact path="/admin/dang-nhap/" component={Login}/>
+        <Route exact path="/admin/dang-ki/" component={Signup}/>
         <Route path="*" component={NotFound} />
     </Switch>
    

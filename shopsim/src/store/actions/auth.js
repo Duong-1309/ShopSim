@@ -39,11 +39,11 @@ export const checkAuthTimeout = expirationDate => {
     }
 }
 
-export const authLogin = (usename, password) =>{
+export const authLogin = (username, password) =>{
     return dispatch => {
         dispatch(authStart());
         axios.post(`${process.env.REACT_APP_API_LOCAL}/api/rest-auth/login`, {
-            usename = usename,
+            username: username,
             password: password
         })
         .then(res => {
@@ -64,8 +64,7 @@ export const authSignup = (usename, email, password1, password2) =>{
     return dispatch => {
         dispatch(authStart());
         axios.post(`${process.env.REACT_APP_API_LOCAL}/api/rest-auth/registration`, {
-            usename = usename,
-            password: password,
+            usename: usename,
             email: email,
             password1: password1,
             password2: password2,
@@ -82,5 +81,22 @@ export const authSignup = (usename, email, password1, password2) =>{
         .catch(err => {
             dispatch(authFail(err))
         })
+    }
+}
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token')
+        if(token === undefined){
+            dispatch(logout())
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'))
+            if(expirationDate <= new Date()){
+                dispatch(logout())
+            } else {
+                dispatch(authSuccess(token));
+                dispatch(checkAuthTimeout(expirationDate.getTime() - new Date().getTime())/1000)
+            }
+        }
     }
 }
