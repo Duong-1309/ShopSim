@@ -23,7 +23,7 @@ export const authFail = error => {
 
 
 export const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
 
     return {
@@ -42,7 +42,7 @@ export const checkAuthTimeout = expirationDate => {
 export const authLogin = (username, password) =>{
     return dispatch => {
         dispatch(authStart());
-        axios.post(`${process.env.REACT_APP_API_LOCAL}/api/rest-auth/login`, {
+        axios.post(`${process.env.REACT_APP_API_LOCAL}/rest-auth/login/`, {
             username: username,
             password: password
         })
@@ -63,7 +63,7 @@ export const authLogin = (username, password) =>{
 export const authSignup = (usename, email, password1, password2) =>{
     return dispatch => {
         dispatch(authStart());
-        axios.post(`${process.env.REACT_APP_API_LOCAL}/api/rest-auth/registration`, {
+        axios.post(`${process.env.REACT_APP_API_LOCAL}/rest-auth/registration/`, {
             usename: usename,
             email: email,
             password1: password1,
@@ -86,16 +86,16 @@ export const authSignup = (usename, email, password1, password2) =>{
 
 export const authCheckState = () => {
     return dispatch => {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         if(token === undefined){
-            dispatch(logout())
+            dispatch(logout());
         } else {
             const expirationDate = new Date(localStorage.getItem('expirationDate'))
             if(expirationDate <= new Date()){
-                dispatch(logout())
+                dispatch(logout());
             } else {
                 dispatch(authSuccess(token));
-                dispatch(checkAuthTimeout(expirationDate.getTime() - new Date().getTime())/1000)
+                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000) );
             }
         }
     }

@@ -7,12 +7,12 @@ import * as actions from '../../store/actions/auth'
 const Login = (props) => {
   const onFinish = (values) => {
     props.onAuth(values.username, values.password);
-    props.history.push('/admin')
 };
   let errorMessage = null;
   if(props.error){
+    console.log(props.error.message);
       errorMessage = (
-          <p>{props.error.message}</p>
+        <p className="text-danger">Tên đăng nhập hoặc mật khẩu không đúng</p>
       )
   }
   return (

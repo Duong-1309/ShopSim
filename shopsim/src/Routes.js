@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, {useEffect} from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import ListProducts from './containers/dataProduct/listProducts'
 import SortProducts from './containers/dataProduct/sortProducts'
 import SearchProduct from './containers/dataProduct/searchProduct'
@@ -17,9 +17,15 @@ import MobileMenu from './components/layout/mobileMenu'
 import ArticleManagement from './containers/admin/content/articleManagement'
 import Login from './containers/admin/login'
 import Signup from './containers/admin/signup'
+import {connect} from 'react-redux'
+import * as actions from './store/actions/auth'
 
-const BaseRouter = () => (
-   
+const BaseRouter = (props) => {
+
+    useEffect(() => {
+        props.onTryAutoSignup();
+    }, [])
+    return (
     <Switch>
         <Route exact path="/">
             <Header />
@@ -79,15 +85,38 @@ const BaseRouter = () => (
             <MobileMenu />
         </Route>
         <Route exact path="/admin">
+            {props.isAuthenticated ? 
             <Admin>
                 <ArticleManagement />
             </Admin>
+            : 
+            <Redirect to={'/dang-nhap-admin'} />
+            }
+            
         </Route>
-        <Route exact path="/admin/dang-nhap/" component={Login}/>
-        <Route exact path="/admin/dang-ki/" component={Signup}/>
+        <Route  path="/dang-nhap-admin">
+            {props.isAuthenticated ? <Redirect to={'/admin'} />
+            : <Login />
+            }
+        </Route>
+        <Route path="/dang-ki-admin">
+            {props.isAuthenticated ? <Signup />
+            : <Redirect to={'/dang-nhap-admin'}/> }
+        </Route>
         <Route path="*" component={NotFound} />
     </Switch>
    
-    
-);
-export default BaseRouter;
+    )
+}
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.token !== null
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup: () => dispatch(actions.authCheckState())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BaseRouter);

@@ -36,7 +36,7 @@ function SingleProduct(props) {
   const handleSubmitCusInfor = (e) => {
     e.preventDefault();
     let [pNumber, nName, aAddress] = [phoneNumber.trim(), name.trim(), address.trim()] //loại bỏ khoảng trắng
-    if(pNumber == '' && nName == '' && aAddress == ''){
+    if(pNumber === '' && nName === '' && aAddress === ''){
       setPhoneNumber('');
       setAddress('');
       setName('');

@@ -55,6 +55,14 @@ const Signup = (props) => {
                     required: true,
                     message: 'Nhập mật khẩu',
                 },
+                () => ({
+                    validator(rule, value) {
+                    if (value.length >= 8 ) {
+                        return Promise.resolve();
+                    }
+                    return Promise.reject('Mật khẩu phải hơn 8 kí tự');
+                    },
+                }),
                 ]}
                 hasFeedback
             >
@@ -97,6 +105,7 @@ const Signup = (props) => {
                 Đăng kí
                 </Button>
             </Form.Item>
+            <span>Lưu ý: mật khẩu phải chứa cả chữ và số.</span>
             </Form>
             </div>
           </div>
