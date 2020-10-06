@@ -18,6 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'category', 'product_type', 'product_img', 'price', 'active')
 
 class VariationSerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=True)
     class Meta:
         model = Variation
         fields = ('id', 'product', 'title', 'price', 'sale_price', 'inventory', 'active')

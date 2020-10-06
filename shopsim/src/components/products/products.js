@@ -1,5 +1,4 @@
-import React, {} from 'react'
-import Pagination from './pagination'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
@@ -8,7 +7,7 @@ function Products(props) {
   const {loading, data} = props;
 
   
-    //  
+  console.log(data, "products");
   if(loading){
     return (
     <div className="col-lg-8 mb-2">
@@ -45,7 +44,6 @@ function Products(props) {
                 ))}
                 
               </div>
-              <Pagination/>
               </>
             
         

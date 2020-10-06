@@ -4,10 +4,12 @@ import json
 from rest_framework import filters
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework.generics import( ListCreateAPIView, RetrieveUpdateDestroyAPIView, 
+                                    ListAPIView, GenericAPIView)
 from .serializers import (CategorySerializer, ProductSerializer, 
                         VariationSerializer, CustomerInformationSerializer,
                         ProductTypeSerializer)
+from ShopSim.pagination import CustomPagination
 from .models import Category, Product, Variation, ProductType
 from django.core.mail import send_mail
 
@@ -81,6 +83,7 @@ class DetailProductType(RetrieveUpdateDestroyAPIView):
 class ListProduct(ListCreateAPIView):
     model = Product
     serializer_class = ProductSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         return Product.objects.all()
