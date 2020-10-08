@@ -5,7 +5,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 
 from .models import Categories, News
 from  .serializers import CategoriesSerializer, NewsSerializer
-
+from ShopSim.pagination import CustomPagination
 # Create your views here.
 
 # =========== API list categories news ==============
@@ -20,6 +20,8 @@ class ListCategoriesNews(ListCreateAPIView):
 class ListNews(ListCreateAPIView):
     model = News
     serializer_class = NewsSerializer
+    pagination_class = CustomPagination
+
 
     def get_queryset(self):
         return News.objects.all()

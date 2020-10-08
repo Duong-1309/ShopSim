@@ -71,10 +71,11 @@ function ListNews(props) {
                             </div>{/* End .post-meta */}
                         </div>{/* End .post-body */}
                     </article>
-
+                        
                     ))}
-                    
+                    {props.children}
                     </div>
+                    
                     <SidebarNews />
                 </div>
             </div>  

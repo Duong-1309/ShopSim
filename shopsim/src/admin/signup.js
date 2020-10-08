@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Spin } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions/auth'
+import * as actions from '../store/actions/auth'
 
 const Signup = (props) => {
   const onFinish = (values) => {

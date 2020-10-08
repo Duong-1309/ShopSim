@@ -24,6 +24,7 @@ function Header() {
             </div>{/* End .container */}
           </div>{/* End .header-middle */}
           <div className="header-bottom sticky-header d-none d-lg-block">
+          <div id="BODY"></div>
             <div className="container">
               <nav className="main-nav w-100">
                 <ul className="menu">

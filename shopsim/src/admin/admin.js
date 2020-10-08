@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import * as actions from '../../store/actions/auth'
+import * as actions from '../store/actions/auth'
 import {Link} from 'react-router-dom'
 
 function Admin(props) {
@@ -41,7 +41,7 @@ function Admin(props) {
                 </div>
               </div>
               <nav className="mt-2">
-                <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
                   <li className="nav-item has-treeview">
                     <Link to="#" className="nav-link">
                       <i className="nav-icon fas fa-tachometer-alt" />

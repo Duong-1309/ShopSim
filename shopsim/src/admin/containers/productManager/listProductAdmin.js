@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import ListNews from '../../components/news/listNews'
 import axios from 'axios'
-import Pagination from '../../components/products/pagination'
 
-function DataListNews() {
+import Pagination from '../../../components/products/pagination'
+import List from '../../components/products/List'
 
-    const [listNews, setListNews] = useState([])
+function ListProductAdmin() {
+    const [simCard, setSimCard] = useState([])
     const [loading, setLoading] = useState(false)
     const [pageParams, setPageParams] = useState('')
     const [pagination, setPagination] = useState({
@@ -15,21 +15,19 @@ function DataListNews() {
     })
 
     useEffect(()=>{
-        document.getElementById('HEADER').scrollIntoView();
-        const fetchData = async () => {
+        const fetch = async () => {
             setLoading(true)
-            const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/news${pageParams}`)
+            const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product${pageParams}`)
             if(res.data.page !== 1) setPageParams(`?page=${res.data.page}`)
             setPagination({
                 total: res.data.total,
                 page: res.data.page,
                 page_size: res.data.page_size
             })
-            setListNews(res.data.results)
+            setSimCard(res.data.results)
             setLoading(false)
-            
         }
-        fetchData();
+        fetch()
     }, [pageParams])
 
     const handlePageChange = (newPage) => {
@@ -39,15 +37,19 @@ function DataListNews() {
             setPageParams(`?page=${newPage}`)
         }
     }
+
     return (
         <>
-            <ListNews listNews={listNews} loading={loading} >
-                <Pagination pagination={pagination} onPageChange={handlePageChange} />
-            </ListNews>
-           
+            <List data={simCard} loading={loading}>
+                <Pagination pagination={pagination} onPageChange={handlePageChange}/>        
+            </List>
         </>
-        )
+    )
 }
 
-export default DataListNews
+ListProductAdmin.propTypes = {
+
+}
+
+export default ListProductAdmin
 

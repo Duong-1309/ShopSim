@@ -10,13 +10,14 @@ import About from './about'
 import Contact from './contact'
 import NotFound from './404'
 import Main from './components/layout/main'
-import Admin from './containers/admin/admin'
 import Header from './components/layout/header'
 import Footer from './components/layout/footer'
 import MobileMenu from './components/layout/mobileMenu'
-import ArticleManagement from './containers/admin/content/articleManagement'
-import Login from './containers/admin/login'
-import Signup from './containers/admin/signup'
+import  ListProductAdmin from './admin/containers/productManager/listProductAdmin'
+import Admin from './admin/admin'
+import Login from './admin/login'
+import Signup from './admin/signup'
+
 import {connect} from 'react-redux'
 import * as actions from './store/actions/auth'
 
@@ -87,7 +88,7 @@ const BaseRouter = (props) => {
         <Route exact path="/admin">
             {props.isAuthenticated ? 
             <Admin>
-                <ArticleManagement />
+                <ListProductAdmin />
             </Admin>
             : 
             <Redirect to={'/dang-nhap-admin'} />
