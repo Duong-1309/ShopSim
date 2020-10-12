@@ -6,7 +6,7 @@ import axios from 'axios'
 function ListProducts() {
   const [simCard, setSimCard] = useState([]);
   const [loading, setLoading] = useState(false)
-  const [pagePagram, setPagePagram] = useState('')
+  const [pageParams, setPageParams] = useState('')
   const [pagination, setPagination] = useState({
     total: null,
     page_size: null,
@@ -18,9 +18,9 @@ function ListProducts() {
     
     const fetchSimCard = async () => {
       setLoading(true)
-      const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product${pagePagram}`)
+      const res = await axios.get(`${process.env.REACT_APP_API_LOCAL}/api/product${pageParams}`)
       if(res.data.page !== 1){
-        setPagePagram(`?page=${res.data.page}`)
+        setPageParams(`?page=${res.data.page}`)
       }
       setPagination({
         total: res.data.total,
@@ -31,12 +31,12 @@ function ListProducts() {
       setLoading(false)
     };
     fetchSimCard()
-  },[pagePagram])
+  },[pageParams])
 
   const handlePageChange = (newPage) => {
     if (newPage === 1){
-      setPagePagram('')
-    } else { setPagePagram(`?page=${newPage}`)}
+      setPageParams('')
+    } else { setPageParams(`?page=${newPage}`)}
   }
 
   return (

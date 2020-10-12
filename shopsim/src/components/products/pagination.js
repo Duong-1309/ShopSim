@@ -12,7 +12,6 @@ function Pagination(props) {
   for(let i=1; i<= totalPages; i++){
     arrPage.push(i)
   }
-  console.log(arrPage, "dfghjk");
 
   const handlePageChange = (newPage) => {
     if(onPageChange !== null){

@@ -12,8 +12,8 @@ urlpatterns = [
     path('product', views.ListProduct.as_view(), name='product'),
     path('product/<int:pk>', views.DetailProduct.as_view(), name='detail_product'),
 
-    path('product/search/<str:textsearch>', views.SearchProduct, name='search_product'),
-    path('product/sort/<str:textsort>', views.SortProduct, name='sort_product'),
+    path('product/search/<str:textsearch>', views.SearchProduct.as_view(), name='search_product'),
+    path('product/sort/<str:textsort>', views.SortProduct.as_view(), name='sort_product'),
 
     path('variation', views.ListVariation.as_view(), name='variation'),
     path('variation/<int:pk>', views.DetailVariation.as_view(), name='detail_variation'),

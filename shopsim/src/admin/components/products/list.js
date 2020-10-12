@@ -1,21 +1,36 @@
 import React from 'react'
-import { Table } from 'reactstrap';
-import {Spin, Input} from 'antd'
+import { Table } from 'reactstrap'
+import {Spin, Empty, Button} from 'antd'
 import PropTypes from 'prop-types'
+
 
 function List(props) {
   const {data, loading} = props;
-  console.log('data:', data);
+
   if(loading){
     return (<div className="text-center"><Spin tip="Loading..."/></div>)
   }
+  
+  if(data.length === 0){
+    return (
+        <Empty>
+          <strong><p>SIM bạn tìm kiếm đã bán hoặc không tồn tại</p></strong>
+          <Button type="primary">Về trang chủ</Button>
+        </Empty>)
+  }
 
-    return (  
-      <div className="ml-4 mr-4">
+  return ( 
+    <>
         <h3 className="text-primary text-center">Danh sách sim</h3>
-        <Input.Search size="large" placeholder="input here" enterButton />
-
-      <Table hover>
+        <div className="container">
+          <div className="row">
+            
+              {props.children} 
+              {/* sort and search */}
+           
+          </div>
+        </div>
+        <Table hover>
       <thead>
         <tr>
           <th scope="col">Số ĐT</th>
@@ -39,8 +54,7 @@ function List(props) {
           
         </tbody>
     </Table>
-    {props.children}
-    </div>
+    </>
     )
 }
 
@@ -48,14 +62,11 @@ List.propTypes = {
   data: PropTypes.array,
   loading: PropTypes.bool,
 }
-List.defaultProps = {
-  data: [],    "editor.fontFamily": "'FiraCode-Retina'",
-
+List.defaultProps = { 
+  data: [],
   loading: true
-}
+ }
+
 
 export default List
-
-
-
 
