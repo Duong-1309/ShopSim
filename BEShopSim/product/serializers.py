@@ -10,9 +10,14 @@ class ProductTypeSerializer(serializers.ModelSerializer):
         model = ProductType
         fields = ('id', 'title', 'description', 'active')
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductListSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     product_type = ProductTypeSerializer(read_only=True)
+    class Meta:
+        model = Product
+        fields = ('id', 'title', 'description', 'category', 'product_type', 'product_img', 'price', 'active')
+
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'title', 'description', 'category', 'product_type', 'product_img', 'price', 'active')

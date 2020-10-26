@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function SingleNews(props) {
@@ -66,9 +67,9 @@ function SingleNews(props) {
                     </h2>
                             <div className="post-meta">
                                 <span><i className="icon-calendar" />{formatDate(news.publish_at)}</span>
-                                <span><i className="icon-user" />Tác giả <a href="#">{news.author.username}</a></span>
+                                <span><i className="icon-user" />Tác giả <Link to="#">{news.author.username}</Link></span>
                                 <span><i className="icon-folder-open" />
-                                <a href="#">{news.categories.name}</a>
+                                <Link to="#">{news.categories.name}</Link>
                                 </span>
                             </div>{/* End .post-meta */}
                             <div className="post-content">
@@ -80,32 +81,32 @@ function SingleNews(props) {
                         Share this post
                     </h3>
                                 <div className="social-icons">
-                                    <a href="#" className="social-icon social-facebook" target="_blank" title="Facebook">
+                                    <Link to="#" className="social-icon social-facebook" target="_blank" title="Facebook">
                                         <i className="icon-facebook" />
-                                    </a>
-                                    <a href="#" className="social-icon social-twitter" target="_blank" title="Twitter">
+                                    </Link>
+                                    <Link to="#" className="social-icon social-twitter" target="_blank" title="Twitter">
                                         <i className="icon-twitter" />
-                                    </a>
-                                    <a href="#" className="social-icon social-linkedin" target="_blank" title="Linkedin">
+                                    </Link>
+                                    <Link to="#" className="social-icon social-linkedin" target="_blank" title="Linkedin">
                                         <i className="fab fa-linkedin-in" />
-                                    </a>
-                                    <a href="#" className="social-icon social-gplus" target="_blank" title="Google +">
+                                    </Link>
+                                    <Link to="#" className="social-icon social-gplus" target="_blank" title="Google +">
                                         <i className="fab fa-google-plus-g" />
-                                    </a>
-                                    <a href="#" className="social-icon social-mail" target="_blank" title="Email">
+                                    </Link>
+                                    <Link to="#" className="social-icon social-mail" target="_blank" title="Email">
                                         <i className="icon-mail-alt" />
-                                    </a>
+                                    </Link>
                                 </div>{/* End .social-icons */}
                             </div>{/* End .post-share */}
                             <div className="post-author">
                                 <h3><i className="icon-user" />Tác giả</h3>
                                 <figure>
-                                    <a href="#">
+                                    <Link to="#">
                                         <img src="assets/images/blog/author.jpg" alt="author" />
-                                    </a>
+                                    </Link>
                                 </figure>
                                 <div className="author-content">
-                                    <h4><a href="#">{news.author.username}</a></h4>
+                                    <h4><Link to="#">{news.author.username}</Link></h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab officia culpa corporis, quidem placeat minima unde vel veniam laboriosam et animi, inventore delectus, officiis doloribus ex amet illum ea suscipit!</p>
                                 </div>{/* End .author.content */}
                             </div>{/* End .post-author */}

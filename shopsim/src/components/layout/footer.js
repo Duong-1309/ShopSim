@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Footer() {
     return (
@@ -18,10 +19,10 @@ function Footer() {
                         <span className="contact-info-label">Address</span>123 Street Name, City, England
                     </li>
                     <li>
-                        <span className="contact-info-label">Phone</span>Toll Free <a href="tel:">(123) 456-7890</a>
+                        <span className="contact-info-label">Phone</span>Toll Free <Link to="tel:">(123) 456-7890</Link>
                     </li>
                     <li>
-                        <span className="contact-info-label">Email</span> <a href="mailto:mail@example.com">mail@example.com</a>
+                        <span className="contact-info-label">Email</span> <Link to="mailto:mail@example.com">mail@example.com</Link>
                     </li>
                     <li>
                         <span className="contact-info-label">Working Days/Hours</span>
@@ -29,9 +30,9 @@ function Footer() {
                     </li>
                     </ul>
                     <div className="social-icons">
-                    <a href="#" className="social-icon social-instagram icon-instagram" target="_blank" title="Instagram" />
-                    <a href="#" className="social-icon social-twitter icon-twitter" target="_blank" title="Twitter" />
-                    <a href="#" className="social-icon social-facebook icon-facebook" target="_blank" title="Facebook" />
+                    <Link to="#" className="social-icon social-instagram icon-instagram" target="_blank" title="Instagram" />
+                    <Link to="#" className="social-icon social-twitter icon-twitter" target="_blank" title="Twitter" />
+                    <Link to="#" className="social-icon social-facebook icon-facebook" target="_blank" title="Facebook" />
                     </div>{/* End .social-icons */}
                 </div>{/* End .widget */}
                 </div>{/* End .col-lg-3 */}
@@ -56,14 +57,14 @@ function Footer() {
                         <h4 className="widget-title">Customer Service</h4>
                         <ul className="links link-parts row mb-0">
                         <div className="link-part col-lg-6 col-md-12">
-                            <li><a href="#">Help &amp; FAQs</a></li>
-                            <li><a href="#">Order Tracking</a></li>
-                            <li><a href="#">Shipping &amp; Delivery</a></li>
+                            <li><Link to="#">Help &amp; FAQs</Link></li>
+                            <li><Link to="#">Order Tracking</Link></li>
+                            <li><Link to="#">Shipping &amp; Delivery</Link></li>
                         </div>
                         <div className="link-part col-lg-6 col-md-12">
-                            <li><a href="#">Orders History</a></li>
-                            <li><a href="#">Advanced Search</a></li>
-                            <li><a href="#" className="login-link">Login</a></li>
+                            <li><Link to="#">Orders History</Link></li>
+                            <li><Link to="#">Advanced Search</Link></li>
+                            <li><Link to="#" className="login-link">Login</Link></li>
                         </div>
                         </ul>
                     </div>{/* End .widget */}
@@ -73,13 +74,13 @@ function Footer() {
                         <h4 className="widget-title">About Us</h4>
                         <ul className="links link-parts row mb-0">
                         <div className="link-part col-lg-6 col-md-12">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Corporate Sales</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><Link to="about.html">About Us</Link></li>
+                            <li><Link to="#">Corporate Sales</Link></li>
+                            <li><Link to="#">Careers</Link></li>
                         </div>
                         <div className="link-part col-lg-6 col-md-12">
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Investor Relations</a></li>
+                            <li><Link to="#">Community</Link></li>
+                            <li><Link to="#">Investor Relations</Link></li>
                         </div>
                         </ul>
                     </div>{/* End .widget */}

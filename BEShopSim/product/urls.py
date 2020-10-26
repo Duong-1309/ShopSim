@@ -10,6 +10,7 @@ urlpatterns = [
     path('product-type/<int:pk>', views.DetailProductType.as_view(), name='detail_product_type'),
 
     path('product', views.ListProduct.as_view(), name='product'),
+    path('product/create/', views.CreateProduct.as_view(), name='create_product'),
     path('product/<int:pk>', views.DetailProduct.as_view(), name='detail_product'),
 
     path('product/search/<str:textsearch>', views.SearchProduct.as_view(), name='search_product'),

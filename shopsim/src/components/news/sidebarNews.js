@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function SidebarNews(props) {
@@ -29,7 +30,7 @@ function SidebarNews(props) {
             <h4 className="widget-title">Chuyên mục bài viết</h4>
             <ul className="list">
             {listCategoriesNews.map((category)=>(
-                <li key={category.id}><a href="#">{category.name}</a></li>
+                <li key={category.id}><Link to="#">{category.name}</Link></li>
             ))}
             </ul>
                 
@@ -40,9 +41,9 @@ function SidebarNews(props) {
             <div className="widget">
             <h4 className="widget-title">Archive</h4>
             <ul className="list">
-                <li><a href="#">April 2018</a></li>
-                <li><a href="#">March 2018</a></li>
-                <li><a href="#">February 2018</a></li>
+                <li><Link to="#">April 2018</Link></li>
+                <li><Link to="#">March 2018</Link></li>
+                <li><Link to="#">February 2018</Link></li>
             </ul>
             </div>{/* End .widget */}
             <div className="widget widget_compare">

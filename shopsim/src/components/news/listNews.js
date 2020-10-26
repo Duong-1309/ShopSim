@@ -31,7 +31,7 @@ function ListNews(props) {
 			<nav aria-label="breadcrumb" className="breadcrumb-nav">
                 <div className="container">
                     <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#"><i className="icon-home" /></a></li>
+                    <li className="breadcrumb-item"><Link to="#"><i className="icon-home" /></Link></li>
                     <li className="breadcrumb-item active" aria-current="page">Blog</li>
                     </ol>
                 </div>{/* End .container */}
@@ -64,9 +64,9 @@ function ListNews(props) {
                             </div>{/* End .post-content */}
                             <div className="post-meta">
                             <span><i className="icon-calendar" />{formatDate(news.publish_at)}</span>
-                            <span><i className="icon-user" />Tác giả <a href="#">{news.author.username}</a></span>
+                            <span><i className="icon-user" />Tác giả <Link to="#">{news.author.username}</Link></span>
                             <span><i className="icon-folder-open" />
-                                <a href="#">{news.categories.name}</a>
+                                <Link to="#">{news.categories.name}</Link>
                             </span>
                             </div>{/* End .post-meta */}
                         </div>{/* End .post-body */}

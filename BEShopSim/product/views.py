@@ -3,10 +3,11 @@ from django.http import JsonResponse
 import json
 from rest_framework import authentication, permissions  #import authentication
 from rest_framework import status, views, response
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.decorators import api_view
 from rest_framework.generics import( ListCreateAPIView, RetrieveUpdateDestroyAPIView, 
-                                    ListAPIView, GenericAPIView, ListAPIView)
-from .serializers import (CategorySerializer, ProductSerializer, 
+                                    ListAPIView, GenericAPIView, ListAPIView, CreateAPIView)
+from .serializers import (CategorySerializer, ProductSerializer, ProductListSerializer,
                         VariationSerializer, CustomerInformationSerializer,
                         ProductTypeSerializer)
 from ShopSim.pagination import CustomPagination
@@ -82,29 +83,32 @@ class DetailProductType(RetrieveUpdateDestroyAPIView):
 
 class ListProduct(ListCreateAPIView):
     model = Product
-    serializer_class = ProductSerializer
+    serializer_class = ProductListSerializer
     pagination_class = CustomPagination
-    authentication_classes = [authentication.TokenAuthentication]
-    permission_classes = [permissions.IsAdminUser]
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = [permissions.IsAdminUser]
 
     def get_queryset(self):
         return Product.objects.all()
-    
-    def create(self, request, *args, **kwargs):
-        serializer = ProductSerializer(data=request.data)
+
+class CreateProduct(CreateAPIView):
+    model = Product
+    serializer_class = ProductSerializer
+    parser_classes = [MultiPartParser, FormParser]
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = [permissions.IsAdminUser]
+
+    def post(self, request, *args, **kwargs):
+        serializer = ProductSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse({
-                'message': 'create new PRODUCT successful'
-            }, status=status.HTTP_201_CREATED)
-        else: 
-            return JsonResponse({
-                'message': 'create new PRODUCT unsuccessful'
-            }, status=status.HTTP_400_BAD_REQUEST)
-
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(status=status.HTTP_400_BAD_REQUEST)
+   
 class DetailProduct(RetrieveUpdateDestroyAPIView):
     model = Product
     serializer_class = ProductSerializer
+    parser_classes = (MultiPartParser, FormParser)
     authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAdminUser]
 
@@ -116,20 +120,18 @@ class DetailProduct(RetrieveUpdateDestroyAPIView):
         serializer = ProductSerializer(product, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse({
-                'message': 'update PRODUCT successful'
-            }, status=status.HTTP_200_OK)
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
         else:
             return JsonResponse({
               'message': 'update PRODUCT unsuccessful'  
             }, status=status.HTTP_400_BAD_REQUEST)
 
-        def delete(self, request, *args, **kwargs):
-            product = get_object_or_404(Product, id=kwargs.get('pk'))
-            product.delete()
-            return JsonResponse({
-                'message': 'delete PRODUCT successful'
-            }, status=status.HTTP_200_OK)
+    def delete(self, request, *args, **kwargs):
+        product = get_object_or_404(Product, id=kwargs.get('pk'))
+        product.delete()
+        return JsonResponse({
+            'message': 'delete PRODUCT successful'
+        }, status=status.HTTP_200_OK)
 
 # ==================== API Variation ============
 
@@ -184,7 +186,8 @@ class DetailVariation(RetrieveUpdateDestroyAPIView):
 
 class SearchProduct(ListAPIView):
     model = Product
-    serializer_class = ProductSerializer
+    serializer_class = ProductListSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         textsearch = self.kwargs['textsearch']
@@ -260,7 +263,7 @@ class SortProduct(ListAPIView):
     Return list product sorted
     """
     model = Product
-    serializer_class = ProductSerializer
+    serializer_class = ProductListSerializer
     pagination_class = CustomPagination
 
     def get_queryset(self):
@@ -284,7 +287,6 @@ class SortProduct(ListAPIView):
             return category.product_set.all()
 
     
-
 # ==================Customer Information ========================
 
 @api_view(['POST'])

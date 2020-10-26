@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 function Search() {
 
@@ -22,7 +22,7 @@ function Search() {
     return (
       <div className="header-right w-lg-max ml-0 mt-0 border-bottom mb-2">
           <div className="header-icon header-search header-search-inline header-search-category w-lg-max pl-3 show">
-            <a href="#" className="search-toggle" role="button"><i className="icon-search-3" /></a>
+            <Link to="#" className="search-toggle" role="button"><i className="icon-search-3" /></Link>
             <form onSubmit={handleSubmit}>
               <div className="header-search-wrapper show">
                 <input type="text" value={valueSearch} onChange={handleChange} className="form-control" placeholder="Nhập số cần tìm..." required />

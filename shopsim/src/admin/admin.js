@@ -13,7 +13,7 @@ function Admin(props) {
                 <Link className="nav-link" data-widget="pushmenu" to="#" role="button"><i className="fas fa-bars" /></Link>
               </li>
               <li className="nav-item d-none d-sm-inline-block">
-                <Link to="" className="nav-link">Home</Link>
+                <Link to="/admin" className="nav-link">Home</Link>
               </li>
               <li className="nav-item d-none d-sm-inline-block">
                 <Link to="#" className="nav-link">Contact</Link>
@@ -144,7 +144,7 @@ function Admin(props) {
               </div>
             </section>
             <section className="content">
-              <div className="container-fluid">
+              <div className="container">
                 <div className="row">
                   <div className="col-12">
                     {props.children}

@@ -17,6 +17,8 @@ import  ListProductAdmin from './admin/containers/productManager/listProductAdmi
 import Admin from './admin/admin'
 import Login from './admin/login'
 import Signup from './admin/signup'
+import SearchProductAdmin from './admin/containers/productManager/searchProductAdmin'
+import SortProductAdmin from './admin/containers/productManager/sortProductAdmin'
 
 import {connect} from 'react-redux'
 import * as actions from './store/actions/auth'
@@ -90,11 +92,29 @@ const BaseRouter = (props) => {
             <Admin>
                 <ListProductAdmin />
             </Admin>
-            : 
-            <Redirect to={'/dang-nhap-admin'} />
+            : <Redirect to={'/dang-nhap-admin'} />
+            
             }
             
         </Route>
+
+        <Route path="/admin/tim-kiem/:valueSearch">
+            {props.isAuthenticated ? 
+            <Admin>
+                <SearchProductAdmin />
+            </Admin>
+            : <Redirect to={'/dang-nhap-admin'} />}
+        </Route>
+
+        <Route path="/admin/sap-xep/:valueSort">
+            {props.isAuthenticated ?
+            <Admin>
+                <SortProductAdmin />
+            </Admin>
+            : <Redirect to={'/dang-nhap-admin'} />}
+
+        </Route>
+
         <Route  path="/dang-nhap-admin">
             {props.isAuthenticated ? <Redirect to={'/admin'} />
             : <Login />

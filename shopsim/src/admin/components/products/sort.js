@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import axios from 'axios'
-
 import PropTypes from 'prop-types'
 
 function Sort(props) {
-    const {onSortChange, defaultSortChecked} = props
+    const history = useHistory()
+    const {defaultSortChecked} = props
     const [productType, setProductType] = useState([])
     const [productCategory, setProductCategory] = useState([])
-    
 
     useEffect(()=>{
         const fetch = async () => {
@@ -25,10 +25,7 @@ function Sort(props) {
     },[])
 
     const handleSortChange = (e) => {
-        if(onSortChange){
-            onSortChange(e.target.value)
-            
-        }
+        history.push(`/admin/sap-xep/${e.target.value}`)
     }
 
     return (
@@ -38,7 +35,7 @@ function Sort(props) {
             <label>Giá từ: </label>
                 <div className="select-custom">
                     <select name="sortByPrice" defaultValue={defaultSortChecked} 
-                    onClick={handleSortChange} className="form-control">
+                    onChange={handleSortChange} className="form-control">
                         <option value="0" >--chọn giá--</option>
                         <option value="gia-tu&&0-1000">Dưới 1 triệu</option>
                         <option value="gia-tu&&1000-5000">1 - 5 triệu</option>
@@ -53,11 +50,14 @@ function Sort(props) {
             <div className="toolbox-item toolbox-sort">
             <label>Mạng: </label>
                 <div className="select-custom">
-                    <select name="sortProductType"defaultValue={ defaultSortChecked } 
-                    onClick={handleSortChange} className="form-control">
+                    <select name="sortProductType" 
+                    onChange={handleSortChange} className="form-control">
                         <option value="0">--chọn mạng--</option>
                         {productType.map((type)=>(
-                            <option value={`${type.title}&&=${type.id}`} key={type.id} >{type.title}</option>
+                            <option value={`${type.title}&&=${type.id}`} key={type.id} 
+                            selected={defaultSortChecked === `${type.title}&&=${type.id}` ? true : false} >
+                            {type.title}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -65,11 +65,14 @@ function Sort(props) {
             <div className="toolbox-item toolbox-sort">
             <label>Loại sim: </label>
                 <div className="select-custom">
-                    <select name="sortByCategory" defaultValue={defaultSortChecked} 
-                    onClick={handleSortChange} className="form-control">
+                    <select name="sortByCategory"  
+                    onChange={handleSortChange} className="form-control">
                         <option value="0">--Loại sim--</option>
                         {productCategory.map((category)=>(
-                            <option value={`${category.title}&&${category.id}`} key={category.id}>{category.title}</option>
+                            <option value={`${category.title}&&${category.id}`} key={category.id}
+                            selected={defaultSortChecked === `${category.title}&&${category.id}` ? true : false}>
+                                {category.title}
+                            </option>
 
                         ))}
                     </select>
@@ -81,11 +84,9 @@ function Sort(props) {
 }
 
 Sort.propTypes = {
-    onSortChange: PropTypes.func,
     defaultSortChecked: PropTypes.string,
 }
 Sort.defaultProps = {
-    onSortChange: null,
     defaultSortChecked: '0',
 }
 

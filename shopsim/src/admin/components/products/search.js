@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import {Input} from 'antd'
+import {useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 
 function Search(props) {
+
+    const history = useHistory()
+
     const {onSearch, defaultValueSearch} = props
     const [valueSearch, setValueSearch] = useState(defaultValueSearch)
     const {Search} = Input
@@ -13,9 +17,8 @@ function Search(props) {
         if (vlS === ""){
             setValueSearch('')
             return
-        }
-        if(onSearch) {
-            onSearch(vlS)
+        } else {
+            history.push(`/admin/tim-kiem/${valueSearch}`)
         }
     }
 
@@ -32,11 +35,9 @@ function Search(props) {
 }
 
 Search.propTypes = {
-    onSearch: PropTypes.func,
     defaultValueSearch: PropTypes.string,
 }
 Search.defaultProps = { 
-    onSearch: null,
     defaultValueSearch: ''
 }
 export default Search

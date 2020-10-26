@@ -10,7 +10,7 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "editor.codeActionsOnSave": null,
-    "files.autoSave": "afterDelay",
+    "files.autoSave": null,
     "cSpell.ignoreWords": [
         "btn",
         "button",

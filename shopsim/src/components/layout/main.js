@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import LeftSidebar from './leftSidebar'
 import RightSidebar from './rightSidebar'
 import Search from './search'
@@ -16,7 +17,7 @@ function Main({children}) {
                <nav aria-label="breadcrumb" className="breadcrumb-nav">
                   <div className="container">
                     <ol className="breadcrumb">
-                      <li className="breadcrumb-item"><a href="#"><i className="icon-home" /></a></li>
+                      <li className="breadcrumb-item"><Link to="#"><i className="icon-home" /></Link></li>
                       <li className="breadcrumb-item active" aria-current="page">Blog</li>
                     </ol>
                   </div>{/* End .container */}

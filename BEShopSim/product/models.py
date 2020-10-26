@@ -22,7 +22,7 @@ class ProductType(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=255, default='')
     description = models.TextField(default='')
-    product_img = models.CharField(max_length=255, default='')
+    product_img = models.ImageField(upload_to="img/product", blank=True, max_length=255, null=True, verbose_name="Product_IMG")
     price = models.IntegerField(default=0)
     category =  models.ForeignKey(Category, on_delete=models.CASCADE)
     product_type = models.ForeignKey(ProductType, on_delete=models.CASCADE, default='', null=True)
