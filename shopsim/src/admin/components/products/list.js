@@ -304,39 +304,3 @@ List.defaultProps = {
   
   export default connect(mapStateToProps, null)(List)
 
- {/* <Form {...layout} name="nest-messages" onFinish={onFinish}>
-              <Form.Item name={['sim', 'title']} label="Số" rules={[{ required: true }]}>
-                <Input />
-              </Form.Item>
-              <Form.Item name={['sim', 'description']} label="Mô tả" rules={[{ required: true }]}>
-                <Input.TextArea />
-              </Form.Item>
-              <Form.Item name={['sim', 'category']} label="Loại sim" rules={[{ required: true }]}>
-                <Select>
-                  <Select.Option value="1">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item name={['sim', 'product_type']} label="Mạng" rules={[{ required: true }]}>
-                <Select>
-                  <Select.Option value={1}>Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item name={['sim', 'price']} label="Giá" rules={[{ type: 'number', required: true }]}>
-                <InputNumber />
-              </Form.Item>
-              <Form.Item
-                  name={['sim', 'product_img']}
-                  label="Image"
-                  extra="longgggggggggggggggggggggggggggggggggg"
-                >
-                
-              </Form.Item>
-              <Form.Item name={['sim', 'active']} valuePropName="checked" >
-                <Checkbox>Trạng thái</Checkbox>
-              </Form.Item>
-              <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                <Button type="primary" htmlType="submit">
-                  Submit
-                    </Button>
-              </Form.Item>
-            </Form> */}

@@ -13,12 +13,15 @@ import Main from './components/layout/main'
 import Header from './components/layout/header'
 import Footer from './components/layout/footer'
 import MobileMenu from './components/layout/mobileMenu'
+
 import  ListProductAdmin from './admin/containers/productManager/listProductAdmin'
 import Admin from './admin/admin'
 import Login from './admin/login'
 import Signup from './admin/signup'
 import SearchProductAdmin from './admin/containers/productManager/searchProductAdmin'
 import SortProductAdmin from './admin/containers/productManager/sortProductAdmin'
+import CreateProduct from './admin/containers/productManager/createProduct'
+
 
 import {connect} from 'react-redux'
 import * as actions from './store/actions/auth'
@@ -93,9 +96,7 @@ const BaseRouter = (props) => {
                 <ListProductAdmin />
             </Admin>
             : <Redirect to={'/dang-nhap-admin'} />
-            
             }
-            
         </Route>
 
         <Route path="/admin/tim-kiem/:valueSearch">
@@ -112,16 +113,26 @@ const BaseRouter = (props) => {
                 <SortProductAdmin />
             </Admin>
             : <Redirect to={'/dang-nhap-admin'} />}
+        </Route>
 
+        <Route exact path="/admin/them-sim">
+            {props.isAuthenticated ?
+            <Admin>
+               <CreateProduct />
+            </Admin>
+            :  <Redirect to={'/dang-nhap-admin'}/>
+            }
         </Route>
 
         <Route  path="/dang-nhap-admin">
-            {props.isAuthenticated ? <Redirect to={'/admin'} />
+            {props.isAuthenticated ?
+             <Redirect to={'/admin'} />
             : <Login />
             }
         </Route>
         <Route path="/dang-ki-admin">
-            {props.isAuthenticated ? <Signup />
+            {props.isAuthenticated ?
+             <Signup />
             : <Redirect to={'/dang-nhap-admin'}/> }
         </Route>
         <Route path="*" component={NotFound} />

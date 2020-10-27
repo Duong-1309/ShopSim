@@ -110,21 +110,15 @@ function Admin(props) {
                     </Link>
                     <ul className="nav nav-treeview">
                       <li className="nav-item">
-                        <Link to="../../index.html" className="nav-link">
+                        <Link to="/admin/them-sim" className="nav-link">
                           <i className="far fa-circle nav-icon" />
-                          <p>Dashboard v1</p>
+                          <p>Thêm sim thủ công</p>
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link to="../../index2.html" className="nav-link">
+                        <Link to="" className="nav-link">
                           <i className="far fa-circle nav-icon" />
-                          <p>Dashboard v2</p>
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="../../index3.html" className="nav-link">
-                          <i className="far fa-circle nav-icon" />
-                          <p>Dashboard v3</p>
+                          <p>Thêm sim từ file excel</p>
                         </Link>
                       </li>
                     </ul>

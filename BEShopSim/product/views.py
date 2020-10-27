@@ -95,8 +95,8 @@ class CreateProduct(CreateAPIView):
     model = Product
     serializer_class = ProductSerializer
     parser_classes = [MultiPartParser, FormParser]
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
 
     def post(self, request, *args, **kwargs):
         serializer = ProductSerializer(data = request.data)
