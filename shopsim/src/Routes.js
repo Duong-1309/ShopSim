@@ -21,7 +21,7 @@ import Signup from './admin/signup'
 import SearchProductAdmin from './admin/containers/productManager/searchProductAdmin'
 import SortProductAdmin from './admin/containers/productManager/sortProductAdmin'
 import CreateProduct from './admin/containers/productManager/createProduct'
-
+import CreateFormExcel from './admin/containers/productManager/createFormExcel'
 
 import {connect} from 'react-redux'
 import * as actions from './store/actions/auth'
@@ -122,6 +122,12 @@ const BaseRouter = (props) => {
             </Admin>
             :  <Redirect to={'/dang-nhap-admin'}/>
             }
+        </Route>
+
+        <Route exact path="/admin/them-sim-tu-file-excel">
+            <Admin>
+                <CreateFormExcel />
+            </Admin>
         </Route>
 
         <Route  path="/dang-nhap-admin">

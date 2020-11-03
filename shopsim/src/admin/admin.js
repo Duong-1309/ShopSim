@@ -116,7 +116,7 @@ function Admin(props) {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link to="" className="nav-link">
+                        <Link to="/admin/them-sim-tu-file-excel" className="nav-link">
                           <i className="far fa-circle nav-icon" />
                           <p>Thêm sim từ file excel</p>
                         </Link>
